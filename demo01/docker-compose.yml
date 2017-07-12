@@ -1,0 +1,8 @@
+demo01:
+  build: .
+  environment:
+    - "VIRTUAL_HOST=demo01.*"
+  ports:
+    - 8888:8888
+  volumes:
+    - /workbench/demo01/project:/var/www
