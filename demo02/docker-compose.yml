@@ -1,0 +1,8 @@
+demo02:
+  build: .
+  environment:
+    - "VIRTUAL_HOST=demo02.*"
+  volumes:
+    - /workbench/demo02/config/lucee/lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml
+    - /workbench/demo02/config/lucee/lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm
+    - /workbench/demo02/project:/var/www
