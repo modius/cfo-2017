@@ -21,7 +21,7 @@
 </head>
 <body>
   <div class="navbar navbar-inverse toolbar-waterfall doc-navbar" id="doc_navbar">
-    <span class="navbar-brand">Lucee</span>
+    <span class="navbar-brand"><cfoutput>#listFirst(server.system.environment.virtual_host, ".")#</cfoutput></span>
   </div>
 
   <div class="jumbotron jumbotron-fluid mb-xl doc-jumbotron" id="doc_index_jumbotron">

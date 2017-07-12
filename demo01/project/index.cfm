@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="navbar navbar-inverse toolbar-waterfall doc-navbar" id="doc_navbar">
-    <span class="navbar-brand">Lucee</span>
+    <span class="navbar-brand"><cfoutput>#listFirst(server.system.environment.virtual_host, ".")#</cfoutput></span>
   </div>
 
   <div class="jumbotron jumbotron-fluid mb-xl doc-jumbotron" id="doc_index_jumbotron">
@@ -68,6 +68,7 @@
         <div class="col-sm-10 col-md-8 col-xl-6 offset-sm-1 offset-md-2 offset-xl-3">
           <div class="mb-xl">
             <h2 class="text-primary">Introduction</h2>
+
             <p class="typography-subheading">The basic idea behind this project is to combine the visual language of <a href="https://material.google.com/" target="_blank">Google Material Design<sup><i class="material-icons material-icons-inline">open_in_new</i></sup></a> with the front-end technology of the popular <a href="https://v4-alpha.getbootstrap.com/" target="_blank">Bootstrap<sup><i class="material-icons material-icons-inline">open_in_new</i></sup></a> framework.</p>
           </div>
 
