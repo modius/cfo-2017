@@ -1,18 +1,18 @@
-# Compound Lucee-NGINX App
+# Simple Lucee App
 
-## Add NGINX configs to Dockerfile
+## Add configs to Dockerfile
 
 ```
-# NGINX configs
-COPY config/nginx/ /etc/nginx/
+# Lucee server PRODUCTION configs
+COPY config/lucee/lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml
+COPY config/lucee/lucee-web.xml.cfm /opt/lucee/web/lucee-web.xml.cfm
+
 ```
 
-## Add VOLUMES for logs in docker-compose.yml
+## Add VOLUMES for configs in docker-compose.yml
 ```
-    - /workbench/demo02/logs/lucee:/opt/lucee/web/logs
-    - /workbench/demo02/logs/nginx:/var/log/nginx
-    - /workbench/demo02/logs/supervisor:/var/log/supervisor
-    - /workbench/demo02/logs/tomcat:/usr/local/tomcat/logs
+    - /workbench/demo01/config/lucee/lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml
+    - /workbench/demo01/config/lucee/lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm
 ```
 
 
