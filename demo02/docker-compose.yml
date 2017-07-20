@@ -3,6 +3,10 @@ demo02:
   environment:
     - "VIRTUAL_HOST=demo02.*"
   volumes:
-    - /workbench/demo02/config/lucee/lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml
-    - /workbench/demo02/config/lucee/lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm
-    - /workbench/demo02/project:/var/www
+    # - /workbench/demo02/config/lucee/lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml
+    # - /workbench/demo02/config/lucee/lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm
+    - /workbench/cfo-2017/demo02/project:/var/www
+    - /workbench/cfo-2017/demo02/logs/lucee:/opt/lucee/web/logs
+    - /workbench/cfo-2017/demo02/logs/nginx:/var/log/nginx
+    - /workbench/cfo-2017/demo02/logs/supervisor:/var/log/supervisor
+    - /workbench/cfo-2017/demo02/logs/tomcat:/usr/local/tomcat/logs

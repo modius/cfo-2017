@@ -1,6 +1,6 @@
 # Simple NGINX/Lucee App
 
-NGINX compound image
+NGINX compound image; ports 80/443
 Project configs
 Logging options; docker-compose logs, link logs
 
@@ -20,3 +20,4 @@ COPY config/nginx/ /etc/nginx/
     - /workbench/lucee-docker-workbench/logs/tomcat:/usr/local/tomcat/logs
 ```
 
+_Note. pay attention to VOLUME directory paths; they are project specific._

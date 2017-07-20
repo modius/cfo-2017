@@ -1,3 +1,7 @@
+<!--- GIVE CONTAINER A NAME --->
+<cfif NOT structKeyExists(application, "helloworld")>
+  <cfset application.helloworld="LUCEE-" & getTickCount()>
+</cfif>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,43 +25,19 @@
 </head>
 <body>
   <div class="navbar navbar-inverse toolbar-waterfall doc-navbar" id="doc_navbar">
-    <span class="navbar-brand"><cfoutput>#listFirst(server.system.environment.virtual_host, ".")#</cfoutput></span>
+    <span class="navbar-brand">Demo 02: Docker in Development</span>
   </div>
 
   <div class="jumbotron jumbotron-fluid mb-xl doc-jumbotron" id="doc_index_jumbotron">
     <div class="container">
       <div class="row">
         <div class="col-sm-10 col-md-8 col-xl-6 offset-sm-1 offset-md-2 offset-xl-3">
-          <h1 class="typography-display-4">Workbench</h1>
-          <p class="font-weight-light typography-title">Docker workbench project template for a Lucee development pipeline; export files to use as the base for Lucee development in a containerised world.</p>
+          <h1 class="typography-display-3">Lucee NGINX</h1>
+          <p class="font-weight-light typography-title">Working with a compound base image to leverage NGINX.  Domain resolution for containers, rather than ports via docker-workbench reverse proxy.</p>
           <p>
-            <a class="btn btn-lg btn-secondary" data-toggle="modal" href="#doc_modal">Download Material</a>
-            <a class="btn btn-lg bg-faded" href="gh-pages/components/cards/index.html">Documentation</a>
+            <a class="btn btn-lg btn-secondary" href="http://workbench.dev">Workbench Proxy</a>
+            <a class="btn btn-lg bg-faded" href="http://portainer.dev">Portainer</a>
           </p>
-          <p class="mb-no text-white-hint typography-caption">Currently v4.0.0-alpha.6<br>(based on Bootstrap v4.0.0-alpha.6)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="doc_modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">Download</h2>
-        </div>
-        <div class="modal-body">
-          <p>Material v4.0.0-alpha.6 is available for download in several ways, including some of the favourite package managers.</p>
-          <h3 class="mt-lg typography-subheading">Material CSS and JS</h3>
-          <p><a href="https://github.com/Daemonite/material/releases" target="_blank"><small class="align-text-top"><i class="material-icons">cloud_download</i></small> Download</a> Material's ready-to-use code to easily drop into any project. Includes compiled and minified versions of CSS and JS plugins.</p>
-          <h3 class="mt-lg typography-subheading">Package Managers</h3>
-          <p>Pull in Material's source files into nearly any project with some of the most popular package managers.</p>
-<pre class="p-md">
-<code>bower install daemonite-material#4.0.0-alpha.6</code>
-</pre>
-<pre class="p-md">
-<code>npm install daemonite-material@4.0.0-alpha.6</code>
-</pre>
         </div>
       </div>
     </div>
@@ -68,68 +48,12 @@
       <div class="row">
         <div class="col-sm-10 col-md-8 col-xl-6 offset-sm-1 offset-md-2 offset-xl-3">
           <div class="mb-xl">
-            <h2 class="text-primary">Introduction</h2>
-            <p class="typography-subheading">The basic idea behind this project is to combine the visual language of <a href="https://material.google.com/" target="_blank">Google Material Design<sup><i class="material-icons material-icons-inline">open_in_new</i></sup></a> with the front-end technology of the popular <a href="https://v4-alpha.getbootstrap.com/" target="_blank">Bootstrap<sup><i class="material-icons material-icons-inline">open_in_new</i></sup></a> framework.</p>
+            <h2 class="text-primary"><cfoutput>#application.helloworld#</cfoutput></h2>
+            <p class="typography-subheading">Reverse proxy should round-robin scaled containers...</p>
           </div>
 
-          <div class="blockquote mb-xl">
-            <p class="font-weight-light text-muted">Contents</p>
-            <p><a href="#doc_index_content_goals">Goals</a></p>
-            <p><a href="#doc_index_content_principles">Principles</a></p>
-            <p><a href="#doc_index_content_roadmap">Roadmap</a></p>
-          </div>
+          
 
-          <div class="mb-xl" id="doc_index_content_goals">
-            <h3 class="text-primary">Goals</h3>
-            <div class="row">
-              <div class="col-md-6 mt-lg">
-                <h4 class="text-secondary typography-subheading">Primary</h4>
-                <p>The primary goal of this project is to give all Bootstrap components and elements a Material Design look, so it allows web developers to continue using the exact same Bootstrap HTML markup they are familiar with, but presents them a final outcome that is in line with the principles and specifics of Google Material Design.</p>
-                <p>Therefore, the Bootstrap's <a href="https://v4-alpha.getbootstrap.com/getting-started/introduction/" target="_blank">documentation<sup><i class="material-icons material-icons-inline">open_in_new</i></sup></a> can serve as a valid documentation for this project as well. Replacing <code>bootstrap.min.css</code> on the site with <code>material.min.css</code> from this project without any other changes will transform all components and elements into a materialised look.</p>
-              </div>
-              <div class="col-md-6 mt-lg">
-                <h4 class="text-secondary typography-subheading">Secondary</h4>
-                <p>A secondary goal of this project is to add support of some unique Material Design components such as floating action buttons, pickers and steppers, to name a few, which cannot be achieved by transforming existing Bootstrap components or elements.</p>
-                <p>Because these components will require additional markup (some may require additional JavaScript), they will be documented separately in Material's documentation (work-in-progress).</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-xl" id="doc_index_content_principles">
-            <h3 class="text-primary">Principles</h3>
-            <div class="row">
-              <div class="col-md-6 mt-lg">
-                <h4 class="text-secondary typography-subheading">CSS &amp; HTML</h4>
-                <p>If a Bootstrap component has an exact match in Google Material Design, this project will style this Bootstrap component based on the specifications laid out in Google Material Design Guidelines. For example, Bootstrap's buttons = Google Material Design's buttons.</p>
-                <p>Some of the Bootstrap components seem to lack an exact match in Google Material Design, but this may be simply due to different naming conventions. For example, Bootstrap's navbars is very much the same as Google Material Design's toolbars.</p>
-                <p>If a Bootstrap component does not have an exact match in Google Material Design, the specifications of a closest matching component in Google Material Design Guidelines will be used to style this Bootstrap component. For example, Bootstrap's badges = Google Material Design's chips.</p>
-                <p>If a Bootstrap component lacks a related counterpart in Google Material Design completely, this project will style this component based on our own iteration of Google Material Design Guidelines. For example, Bootstrap's button groups, jumbotrons and paginations, etc.</p>
-              </div>
-              <div class="col-md-6 mt-lg">
-                <h4 class="text-secondary typography-subheading">JavaScript</h4>
-                <p>No modification has been made to Bootstrap's JavaScript. It is safe to use Bootstrap's JavaScript as it is.</p>
-                <p>However, in order to achieve some Material feel and look, Material includes a handful of additional JavaScript to help bring some of the components to life.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-xl" id="doc_index_content_roadmap">
-            <h3 class="text-primary">Roadmap</h3>
-            <div class="row">
-              <div class="col-md-4 mt-lg">
-                <h4 class="text-secondary typography-subheading">Near-term</h4>
-                <p>Bug fixes and updates alongside Bootstrap 4's continuous releases.</p>
-              </div>
-              <div class="col-md-4 mt-lg">
-                <h4 class="text-secondary typography-subheading">Mid-term</h4>
-                <p>Add missing support for some Google Material Design components (e.g. snackbars).</p>
-              </div>
-              <div class="col-md-4 mt-lg">
-                <h4 class="text-secondary typography-subheading">Long-term</h4>
-                <p>Rewrite all JavaScript plugins in ES6 to take advantage of the newest JavaScript enhancements.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
