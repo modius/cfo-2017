@@ -2,11 +2,31 @@ demo03:
   build: .
   environment:
     - "VIRTUAL_HOST=demo03.*"
+    - "DEMO_DSN=demo"
+    - "DEMO_DBTYPE=mysql"
+    - "DEMO_DSN_CLASS=org.gjt.mm.mysql.Driver"
+    - "DEMO_DSN_CONNECTIONSTRING=jdbc:mysql://mysql:3306/boxofbooks?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useLegacyDatetimeCode=true"
+    - "DEMO_DSN_USERNAME=docker"
+    - "DEMO_DSN_PASSWORD=docker"
+    - "SMTP_SERVER=mailtrap.io"
+    - "SMTP_PORT=2525"
+    - "SMTP_USERNAME=b134d425393316"
+    - "SMTP_PASSWORD=cca57fa677e03c"
   volumes:
-    - /workbench/demo03/config/lucee/lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml
-    - /workbench/demo03/config/lucee/lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm
-    - /workbench/demo03/project:/var/www
-    - /workbench/demo03/logs/lucee:/opt/lucee/web/logs
-    - /workbench/demo03/logs/nginx:/var/log/nginx
-    - /workbench/demo03/logs/supervisor:/var/log/supervisor
-    - /workbench/demo03/logs/tomcat:/usr/local/tomcat/logs
+    - /workbench/cfo-2017/demo03/project:/var/www
+  links:
+    - "mysql:mysql"
+mysql:
+  # Notes; https://registry.hub.docker.com/u/tutum/mysql/
+  image: "tutum/mysql:5.6"
+  environment:
+   - "MYSQL_USER=docker"
+   - "MYSQL_PASS=docker"
+   - "STARTUP_SQL=/tmp/sample.sql"
+   - "EXTRA_OPTS=--lower_case_table_names=1"
+  volumes:
+    - /workbench/cfo-2017/demo03/config/mysql/sample.sql:/tmp/sample.sql
+  expose:
+    - "3306"
+  # ports:
+  #   - "3306:3306"

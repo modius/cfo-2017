@@ -28,10 +28,10 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-10 col-md-8 col-xl-6 offset-sm-1 offset-md-2 offset-xl-3">
-          <h1 class="typography-display-3">Config by Environment</h1>
-          <p class="font-weight-light typography-title">Configure everything with ENV variables if they will vary between deployments; for example, DEV, STAGE, and PRODUCTION.</p>
+          <h1 class="typography-display-3">Demo Datasource</h1>
+          <p class="font-weight-light typography-title">You can configure most things... including datasources :)</p>
           <p>
-            <a class="btn btn-lg btn-secondary" href="mysql.cfm">Demo DSN</a>
+            <a class="btn btn-lg btn-secondary" href="index.cfm">Configure By Environment</a>
           </p>
         </div>
       </div>
@@ -43,14 +43,26 @@
       <div class="row">
         <div class="col-sm-10 col-md-8 col-xl-6 offset-sm-1 offset-md-2 offset-xl-3">
           <div class="mb-xl">
-            <h2 class="text-primary">Using Environment</h2>
+            <h2 class="text-primary">Sample Query</h2>
 
-            <p class="typography-subheading">Configure ENV through the Dockerfile and Docker Compose.</p>
+            <p class="typography-subheading">Looking at a local mysql container.</p>
+            <cfdbinfo datasource="demo" name="qInfo" type="version">
+            <cfdump var="#qInfo#">
 
-            <cfdump var="#server.system.environment#">
+            <cfquery datasource="demo" name="qbooks" maxrows="10">
+            SELECT * FROM bobBook WHERE pipelinestatus='packaged'
+            </cfquery>
+            
+            <table class="table">
+              <cfoutput query="qBooks">
+              <tr>
+                <td><img src="https://io-boxofbooks.s3.amazonaws.com/live#qBooks.imgCoverThumb#"</td>
+                <td><b>#qBooks.title#</b><br>#qBooks.description#</td>
+              </tr>
+              </cfoutput>
+            </table>
 
           </div>
-
         </div>
       </div>
     </div>
