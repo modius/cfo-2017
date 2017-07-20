@@ -1,4 +1,4 @@
-FROM lucee/lucee52
+FROM lucee/lucee4
 
 MAINTAINER Daemonites <hello@daemon.com.au>
 

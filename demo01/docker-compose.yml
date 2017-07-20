@@ -5,4 +5,4 @@ demo01:
   ports:
     - 8888:8888
   volumes:
-    - /workbench/demo01/project:/var/www
+    - /workbench/cfo-2017/demo01/project:/var/www
