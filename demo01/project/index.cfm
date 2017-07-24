@@ -28,7 +28,7 @@
       <div class="row">
         <div class="col-sm-10 col-md-8 col-xl-6 offset-sm-1 offset-md-2 offset-xl-3">
           <h1 class="typography-display-3">Batteries Not Included</h1>
-          <p class="font-weight-light typography-title">The nucleus of a Docker project structure.</p>
+          <p class="font-weight-light typography-title">The nucleus of a Docker project structure and more.</p>
           <p>
             <a class="btn btn-lg btn-secondary" href="http://demo01.192.168.99.100.nip.io:8888/lucee/admin/server.cfm">Lucee Server Admin</a>
           </p>
