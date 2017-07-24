@@ -7,7 +7,7 @@ MAINTAINER Daemonites <hello@daemon.com.au>
 # COPY config/lucee/lucee-web.xml.cfm /opt/lucee/web/lucee-web.xml.cfm
 
 # NGINX configs
-# COPY config/nginx/ /etc/nginx/
+COPY config/nginx/ /etc/nginx/
 
 # Deploy codebase to container
 COPY project /var/www

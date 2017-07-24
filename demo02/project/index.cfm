@@ -35,7 +35,7 @@
           <h1 class="typography-display-3">Lucee NGINX</h1>
           <p class="font-weight-light typography-title">Working with a compound base image to leverage NGINX.  Domain resolution for containers, rather than ports via docker-workbench reverse proxy.</p>
           <p>
-            <a class="btn btn-lg btn-secondary" href="http://workbench.dev">Workbench Proxy</a>
+            <a class="btn btn-lg btn-secondary" href="http://demo02.192.168.99.100.nip.io/lucee/admin/server.cfm">Lucee Server Admin</a>
             <a class="btn btn-lg bg-faded" href="http://portainer.dev">Portainer</a>
           </p>
         </div>
